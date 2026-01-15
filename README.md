@@ -6,7 +6,7 @@
 
 一個諷刺性的加密貨幣/股票交易模擬器遊戲，帶有復古終端機風格的 UI。
 
-**線上遊玩**: [AI Studio Apps](https://ai.studio/apps/drive/1eKvJdVjdTN-NUjXHSP4InFAI-Wmr7Acd)
+
 
 ## 🚀 快速開始
 
