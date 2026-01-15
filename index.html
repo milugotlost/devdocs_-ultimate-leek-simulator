@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ultimate Leek Simulator 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              terminal: '#050a0e',
+              'term-green': '#00ff9d',
+              'term-red': '#ff3860',
+              'term-grid': '#1a2634',
+              'term-text': '#c9d1d9',
+            },
+            fontFamily: {
+              vt323: ['"VT323"', 'monospace'],
+            },
+            animation: {
+              'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'glitch': 'glitch 1s linear infinite',
+              'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
+            },
+            keyframes: {
+              glitch: {
+                '2%, 64%': { transform: 'translate(2px,0) skew(0deg)' },
+                '4%, 60%': { transform: 'translate(-2px,0) skew(0deg)' },
+                '62%': { transform: 'translate(0,0) skew(5deg)' },
+              },
+              shake: {
+                '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
+                '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
+                '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
+                '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
+              }
+            }
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #050a0e;
+        color: #c9d1d9;
+        font-family: 'VT323', monospace;
+      }
+      
+      /* CRT Scanline Effect */
+      .crt::after {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+        z-index: 2;
+        background-size: 100% 2px, 3px 100%;
+        pointer-events: none;
+      }
+      
+      .crt::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: rgba(18, 16, 16, 0.1);
+        opacity: 0;
+        z-index: 2;
+        pointer-events: none;
+        animation: flicker 0.15s infinite;
+      }
+
+      @keyframes flicker {
+        0% { opacity: 0.0279; }
+        5% { opacity: 0.03487; }
+        10% { opacity: 0.023; }
+        15% { opacity: 0.04; }
+        20% { opacity: 0.028; }
+        25% { opacity: 0.034; }
+        30% { opacity: 0.023; }
+        35% { opacity: 0.042; }
+        40% { opacity: 0.026; }
+        45% { opacity: 0.034; }
+        50% { opacity: 0.025; }
+        55% { opacity: 0.041; }
+        60% { opacity: 0.023; }
+        65% { opacity: 0.039; }
+        70% { opacity: 0.025; }
+        75% { opacity: 0.03; }
+        80% { opacity: 0.023; }
+        85% { opacity: 0.044; }
+        90% { opacity: 0.023; }
+        95% { opacity: 0.039; }
+        100% { opacity: 0.023; }
+      }
+
+      .text-glow {
+        text-shadow: 0 0 5px rgba(201, 209, 217, 0.5);
+      }
+      .text-glow-green {
+        text-shadow: 0 0 5px rgba(0, 255, 157, 0.5);
+      }
+      .text-glow-red {
+        text-shadow: 0 0 5px rgba(255, 56, 96, 0.5);
+      }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "html-to-image": "https://esm.sh/html-to-image@1.11.11",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
+    "react-dom": "https://esm.sh/react-dom@^19.2.3",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root" class="min-h-screen w-screen crt"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
